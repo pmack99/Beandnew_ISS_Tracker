@@ -90,7 +90,6 @@ h2 {
   padding-top: 20px;
   padding-bottom: 20px;
   width: auto;
-  background: rgba(200, 200, 200, 0.3);
   border-radius: 25px;
   border: goldenrod solid 1px;
   text-align: center;
@@ -99,6 +98,7 @@ h2 {
   margin: 10px;
   max-height: auto;
   max-width: 100%;
+  background: rgb(245, 248, 248);
 }
 
 .navbar {
@@ -109,11 +109,13 @@ h2 {
 .jumbotron{
     background: none;
     text-align: center;
-    padding-left:50px;
+    padding-left:60px;
     padding-top:0px;
     padding-bottom:0px;
 
 }
+
+
 
 .jumbotron.img {
   max-height: 100%;
@@ -154,6 +156,19 @@ section{
 
 .lead1{
   font-size: 18px;
+}
+
+.pass{
+  background: rgb(218, 219, 219);
+  border-radius: 25px;
+  border: goldenrod solid 1px;
+  text-align: center;
+}
+
+#contact{
+  background: rgb(218, 219, 219);
+  border: goldenrod solid 1px;
+  text-align: center;
 }
 
 
