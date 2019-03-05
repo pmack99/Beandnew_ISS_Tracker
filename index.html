@@ -10,6 +10,8 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Questrial" rel="stylesheet">
+  <!--firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- leaflet CSS -->
@@ -222,6 +224,18 @@
   <script type="text/javascript">
 
 
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyAw8TqiPOkzzTlB1rIEbT4sE_yGRk-qq4k",
+    authDomain: "space-force-iss.firebaseapp.com",
+    databaseURL: "https://space-force-iss.firebaseio.com",
+    projectId: "space-force-iss",
+    storageBucket: "space-force-iss.appspot.com",
+    messagingSenderId: "170025590751"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
     var latitude = "";
     var longitude = "";
     var altitude = "";
@@ -351,6 +365,8 @@
 
         var lat = results[0].locations[0].displayLatLng.lat;
         var lon = results[0].locations[0].displayLatLng.lng;
+        database.ref().push(lat);
+        database.ref().push(lon);
 
         var queryURL = "https://www.n2yo.com/rest/v1/satellite/visualpasses/25544/" + lat + "/" + lon + "/0/2/300/&apiKey=LDUFJ6-J5J7F4-DCMYRA-3WB7"
 
@@ -367,9 +383,11 @@
             console.log(response);
 
             var passesCount = response.info.passescount;
+            console.log(passesCount)
             if (passesCount == 0) {
               var newRow = $("<tr>").append(
                 $("<td>").text("There are no visible passes in the next 10 days"),
+                  database.ref().push("there are no visible passes in the next 10 days in " + cityState)
 
               );
 
@@ -399,6 +417,17 @@
                 var whereEnd = response.passes[i].endAzCompass
                 console.log("ISS disappears to the " + whereEnd);
 
+                var newSearch ={
+                  search: cityState,
+                  date: dateString,
+                  lengthOfTime: "Duration= " + duration + " seconds",
+                  start: "ISS appears from the " + whereStart,
+                  startingElevation:"Starting Elevation = " + howHigh,
+                  maxElevation:"Maximum Elevation = " + maxHigh,
+                  end: "ISS disappears to the " + whereEnd
+                }
+
+                database.ref().push(newSearch);
 
                 var newRow = $("<tr>").append(
 
@@ -473,7 +502,8 @@
 
 
   <!-- Optional JavaScript -->
-
+<!--Firebase Script tag-->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script> -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
