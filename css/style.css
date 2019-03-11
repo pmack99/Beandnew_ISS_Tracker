@@ -1,4 +1,9 @@
-/* New style */
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500|Nunito+Sans:400,600,700,900');
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Nunito Sans', sans-serif; */
+
+
 
 
 
@@ -7,21 +12,112 @@ body{
   font-size: 100%;
 }
 
+header{
+  margin-top: 110px;
+  text-transform: uppercase;
+}
 
+
+/* HEADERS & TEXT*/
+h1, h2, h3, h4 {
+  font-family: 'Nunito Sans', sans-serif;
+}
+.h2, h2{
+  color:#E9AE1A;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+h5, h6{
+  font-family: 'Montserrat', sans-serif;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.jumbotron .display-4{
+  font-size: 1.2rem;
+  color:#E9AE1A;
+}
+
+.jumbotron .lead{
+  color:#8FBDE0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0px;
+  
+}
+
+.jumbotron{
+/* border: 2px solid #8FBDE0; */
+background: none;
+text-align: center;
+padding: 5px 0 5px 0;
+margin-bottom: 10px;
+
+}
 
 /* NAVIGATION */
 
 .bg-dark {
   background-color: #1D1E28!important;
+}
+
+/* MAP */
+
+#mapId{
+  height: 190px;
+  margin-bottom: 20px;
+}
+
+#latitudeTxt, #longitudeTxt, #altitudeTxt, #velocityTxt{
+  color:#8FBDE0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 2px;
+
+  padding-right:2px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  /* margin-left:-15px; */
+  border-bottom-width: 0px;
+  border-top-width:2px;
+  border-right-width:0px;
+  border-left-width:0px;
+  border-style: solid;
+  border-color: #273540;
   
+
+}
+
+#latitudeN, #longitudeN, #altitude, #velocity, #timeStamp{
+  color:#F0F8FF;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 2px;
+
+  padding-left:2px;
+  padding-top:10px;
+  padding-bottom: 10px;
+
+  margin-right:-50px;
+  border-bottom-width: 0px;
+  border-top-width:2px;
+  border-right-width:0px;
+  border-left-width:0px;
+  border-style: solid;
+  border-color: #273540;
+
 }
 
 
 
+/* MOBILE */
 
 @media (max-width: 991.98px) {
-
-
 /* navbar */
 .navbar-toggler {
   color:#EAAC1B;
@@ -76,301 +172,12 @@ button:focus {
 
 
 
+
+
+
+
+
 }
 /* media query for mobile END */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* END New style */
-
-
-.background {
-  height: auto;
-  width: 100%;
-  opacity: 0.8;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  position: absolute;
-}
-
-
-
-.col-9{
-    border: goldenrod solid 2px;
-    border-radius: 25px;
-}
-#mapId {
-  height: 400px;
-  width: auto;
-  border: goldenrod solid 2px;
-  background-color: none;
-  border-radius: 25px;
-}
-
-
-#mapBox {
-  background: none;
-  font-family: "Questrial", sans-serif;
-  text-align: center;
-  padding-top: 0px;
-}
-
-.container {
-  background: none;
-  padding: 5px;
-  margin: 5px;
-}
-
-
-.display-4 {
-  font-family: "Questrial", sans-serif;
-  font-size: 20px;
-  padding-left:20px;
-}
-
-h2 {
-  font-family: "Questrial", sans-serif;
-  font-size: 35px;
-}
-
-
-
-.issInfo {
-  font-family: "Josefin Sans", sans-serif;
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-}
-
-.table {
-  height: 300px;
-  overflow: auto;
-}
-
-.scrollit {
-  overflow: scroll;
-  height: 300px;
-}
-
-#apod1 {
-  margin: 10px;
-  max-height: auto;
-  max-width: 100%;
-}
-
-.img {
-  display: block;
-  max-width: 100%;
-}
-
-.caption {
-  height: 150px;
-  overflow: scroll;
-  margin: 40px;
-  font-size: 20px;
-  padding: 20px;
-}
-
-.apod {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: auto;
-  border-radius: 25px;
-  border: goldenrod solid 1px;
-  text-align: center;
-  display: block;
-  margin-right: auto;
-  margin: 10px;
-  max-height: auto;
-  max-width: 100%;
-  background: rgb(245, 248, 248);
-}
-
-.navbar {
-  font-family: "Questrial", sans-serif;
-  font-size: 20px;
-}
-
-.jumbotron{
-    background: none;
-    text-align: center;
-    padding-left:60px;
-    padding-top:0px;
-    padding-bottom:0px;
-
-}
-
-
-
-.jumbotron.img {
-  max-height: 100%;
-  max-width: 100%;
-  margin:0; /* If you want no margin */
-  padding:0; /*if your want to padding */
-}
-
-#iss {
-  max-height: 100%;
-  max-width: 100%;
-  margin:0; /* If you want no margin */
-  padding:0; /*if your want to padding */
-}
-
-.centered {
-  position: absolute;
-  top: 30%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  color: blue;
-  font-family: "Questrial", sans-serif;
-}
-
-.top{
-  margin:0px;
-  padding:0px;
-  padding-top: 70px;
-}
-
-section{
-  padding:20px;
-}
-
-.lead{
-  font-size: 18px;
-}
-
-.lead1{
-  font-size: 18px;
-}
-
-.pass{
-  background: rgb(218, 219, 219);
-  border-radius: 25px;
-  border: goldenrod solid 1px;
-  text-align: center;
-}
-
-#contact{
-  background: rgb(218, 219, 219);
-  border: goldenrod solid 1px;
-  text-align: center;
-}
-
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (max-width: 500px) { 
-h1,h2, p{
-  font-size: 10px;
-}
-
-#mapbox .headline{
-  font-size: 20px;
-  text-align: center;
-}
-
-#pass{
-  font-size: 8px;
-}
-
-#issInfo {
-  font-size: 15px;
-}
-.img {
-  height: '100%';
-  width: 'auto';
-}
-
-.centered {
- display: none;
-}
-
-}
- 
-
-
-/* // Medium devices (tablets, 768px and up) */
-@media screen and (max-width: 768px) { 
-  h1, h2 , .headline{
-    font-size: 20px;
-  }
-
-  #mapbox .headline{
-    font-size: 20px;
-    text-align: center;
-  }
-  p {
-    font-size: 10px;
-  }
-  #pass{
-    font-size: 12px;
-  }
-  #apod{
-    font-size: 12px;
-  }
-  .img {
-    height: '100%';
-    width: 'auto';
-  }
-  .centered {
-    font-size: 8;
-   }
-
- }
-
-/* // Large devices (desktops, 992px and up) */
-@media screen and (max-width: 992px) { 
-  h1 , h2, .headline{
-    font-size: 30px;
-  }
-  p {
-    font-size: 15px;
-  }
-
-  #pass{
-    font-size: 15px;
-  }
-
-  #apod{
-    font-size: 15px;
-  }
-
-  .row {
-    flex-direction: column;
-    font-size: 15px;
-    text-align: center;
-  }
-  
- }
-
-
-/* 
-// Extra large devices (large desktops, 1200px and up) */
-@media screen and (max-width: 1200px) { 
-  h1 {
-    font-size: 40px;
-  }
-  p {
-    font-size: 20px;
-  }
- }
-
- 
 
