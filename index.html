@@ -39,67 +39,83 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="container-fluid">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">ISS Tracker</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#map">Map</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#pass">Pass</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#apod">Photos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">About</a>
-          </li>
-        </ul>
+      <div class="container-fluid">
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">
+              <img src="./images/ISS-Tracker-logomobile.svg" alt="International Space Station Tracker logo">
+            </a>
+
+        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">ISS Tracker</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#map">Current Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#pass">Overhead Pass</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#history">Search History</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#apod">Photos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">About</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Header -->
-  <header class="top">
-    <div class="container-fluid text-center">
-        <img src="images/3.jpg" class="image" id="iss" />
-        <div class="centered"> <h1>International Space Station Tracker</h1> </div>
-      
+  <div id="map"></div>
+  <header >
+
+      <div class="jumbotron">
+          <div class="container">
+            <h2 class="display-4">International Space Station</h2>
+            <p class="lead">Current Location</p>
           </div>
-        
-    </div>
+        </div>
+  
   </header>
 
 
   <!-- Map -->
-  <section id="map">
+  <section >
 
     <div class="container-fluid">
-      <div class="jumbotron">
+      
         <div class="row mx-auto" id="mapBox">
           <!-- <h1 class="headline">International Space Station Tracker</h1> -->
-          <div class="col-9" id="mapId"></div>
-          <div class="col-3" id="issInfo">
-            <br>
-            <div id="latitudeN"> </div>
-            <div id="longitudeN"> </div>
-            <hr>
-            <div id="altitude"> </div>
-            <div id="velocity"> </div>
-            <hr>
-            <div id="solar_latN"></div>
-            <div id="solar_lonN"></div>
-            <hr>
-            <div id="visibility"> </div>
+          <div class="col-12" id="mapId"></div>
+          <div class="col-12" id="issInfo">
+            <h2 class="text-center">ISS COORDINATES DATA:</h2>
+          <div class="row">
+            <div class="col-6 text-right" id="latitudeTxt"> </div>
+            <div class="col-6 text-left" id="latitudeN"> </div>
+            
+            <div class="col-6 text-right" id="longitudeTxt"> </div>
+            <div class="col-6 text-left" id="longitudeN"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6 text-right" id="altitudeTxt"> </div>
+            <div class="col-6 text-left" id="altitude"> </div>
+          
+            <div class="col-6 text-right" id="velocityTxt"> </div>
+            <div class="col-6 text-left" id="velocity"> </div>
+          </div>
+            <div class="row">
+            <div class="col-12 text-center" id="timeStamp"> </div>
+          </div>
           </div>
 
         </div>
-      </div>
+      
     </div>
     </div>
 
@@ -244,7 +260,7 @@
     var solar_lon = "";
     var mymap = null;
 
-
+//map
     function moveIss() {
       if (mymap !== null) mymap.remove();
 
@@ -283,11 +299,16 @@
         //   var solar_latN = solar_lat.toFixed(4);
         //   var solar_lonN = solar_lon.toFixed(4);
 
-          $("#latitudeN").text("Latitude: " + latitude),
-          $("#longitudeN").text("Longitude: " + longitude),
-          $("#altitude").text("Satellite right angle:  " + ra ),
-          $("#velocity").text("Sattellite Declination:  " + dec );
-          $("#solar_latN").text(timestamp);
+        $("#latitudeTxt").text("Latitude: "),
+          $("#latitudeN").text(latitude),
+        $("#longitudeTxt").text("Longitude: "),
+          $("#longitudeN").text(longitude),
+        $("#altitudeTxt").text("Satellite Right Angle:  "),
+          $("#altitude").text(ra),
+        $("#velocityTxt").text("Sattellite Declination:  ");
+          $("#velocity").text(dec );
+
+        $("#timeStamp").text(timestamp);
         //   $("#solar_lonN").text("Solar Longitude: " + solar_lonN);
         //   $("#visibility").text("Visibility: " + visibility);
 
@@ -454,6 +475,7 @@
       });
     });
 
+// Image Gallery
     var i = 0;
     var queryURL = "https://images-api.nasa.gov/search?q=iss&media_type=image"
 
