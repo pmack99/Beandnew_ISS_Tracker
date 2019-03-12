@@ -221,3 +221,17 @@ function moveIss() {
 
     });
   });
+
+  database.ref().on("child_added", function (childSnapshot) {
+
+    var citySnap = childSnapshot.val().search
+    var dateSnap = childSnapshot.val().date
+    var startSnap = childSnapshot.val().start
+    var endSnap = childSnapshot.val().end
+    var lengthSnap = childSnapshot.val().lengthOfTime
+    var startEleSnap = childSnapshot.val().startingElevation
+    var maxEleSnap = childSnapshot.val().maxElevation
+    
+    console.log("testing child variables for xtine", citySnap, dateSnap)
+    
+    })
