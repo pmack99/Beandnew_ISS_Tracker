@@ -19,45 +19,58 @@ var config = {
     var mymap = null;
 
 //map
-function moveIss() {
-    if (mymap !== null) mymap.remove();
+    function moveIss() {
+      if (mymap !== null) mymap.remove();
 
-    var queryURL = "https://api.wheretheiss.at/v1/satellites/25544";
+      var queryURL = "https://www.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=LDUFJ6-J5J7F4-DCMYRA-3WB7"
 
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-      .then(function (response) {
-        console.log(response);
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function (response) {
+          console.log(response);
 
-        console.log(response.latitude);
-        console.log(response.longitude);
+          console.log(response.positions[0].satlatitude);
+          console.log(response.positions[0].satlongitude);
+          console.log(response.positions[0].ra);
+          console.log(response.positions[0].dec);
 
-        var altitude = response.altitude;
-        var velocity = response.velocity;
-        var visibility = response.visibility;
-        var latitude = response.latitude;
-        var longitude = response.longitude;
-        var solar_lat = response.solar_lat;
-        var solar_lon = response.solar_lon;
+        //   var altitude = response.altitude;
+        //   var velocity = response.velocity;
+        //   var visibility = response.visibility;
+          var latitude = response.positions[0].satlatitude;
+          var longitude = response.positions[0].satlongitude;
+          var ra = response.positions[0].ra;
+          var dec = response.positions[0].dec;
+          var time = response.positions[0].timestamp;
+          var timestamp = moment.unix(time).format('LLLL');
+                console.log(timestamp);
 
-        var altitudeN = altitude.toFixed(2);
-        var velocityN = velocity.toFixed(2);
-        var latitudeN = latitude.toFixed(4);
-        var longitudeN = longitude.toFixed(4);
-        var solar_latN = solar_lat.toFixed(4);
-        var solar_lonN = solar_lon.toFixed(4);
+        //   var solar_lat = response.solar_lat;
+        //   var solar_lon = response.solar_lon;
 
-        $("#latitudeN").text("Latitude: " + latitudeN),
-          $("#longitudeN").text("Longitude: " + longitudeN),
-          $("#altitude").text("Altitude: " + altitudeN + " KM"),
-          $("#velocity").text("Velocity: " + velocityN + " KPH");
-        $("#solar_latN").text("Solar Latitude: " + solar_latN);
-        $("#solar_lonN").text("Solar Longitude: " + solar_lonN);
-        $("#visibility").text("Visibility: " + visibility);
+        //   var altitudeN = altitude.toFixed(2);
+        //   var velocityN = velocity.toFixed(2);
+        //   var latitudeN = latitude.toFixed(4);
+        //   var longitudeN = longitude.toFixed(4);
+        //   var solar_latN = solar_lat.toFixed(4);
+        //   var solar_lonN = solar_lon.toFixed(4);
 
-        mymap = L.map("mapId").setView([latitudeN, longitudeN], 4);
+        $("#latitudeTxt").text("Latitude: "),
+          $("#latitudeN").text(latitude),
+        $("#longitudeTxt").text("Longitude: "),
+          $("#longitudeN").text(longitude),
+        $("#altitudeTxt").text("Satellite Right Angle:  "),
+          $("#altitude").text(ra),
+        $("#velocityTxt").text("Sattellite Declination:  ");
+          $("#velocity").text(dec );
+
+        $("#timeStamp").text(timestamp);
+        //   $("#solar_lonN").text("Solar Longitude: " + solar_lonN);
+        //   $("#visibility").text("Visibility: " + visibility);
+
+          mymap = L.map("mapId").setView([latitude, longitude], 4);
 
           var issIcon = L.icon({
             iconUrl: "images/iss2.png",
