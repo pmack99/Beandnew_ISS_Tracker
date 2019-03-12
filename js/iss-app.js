@@ -234,4 +234,14 @@ $(".button").on("click", function (event) {
 
 database.ref().on("child_added", function (childSnapshot) {
   console.log("this is the child snapshot", childSnapshot.val());
+
+var citySnap = childSnapshot.val().search
+var dateSnap = childSnapshot.val().date
+var startSnap = childSnapshot.val().start
+var endSnap = childSnapshot.val().end
+var lengthSnap = childSnapshot.val().lengthOfTime
+var startEleSnap = childSnapshot.val().startingElevation
+var maxEleSnap = childSnapshot.val().maxElevation
+
+
 })
