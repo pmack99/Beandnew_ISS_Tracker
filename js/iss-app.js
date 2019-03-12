@@ -20,6 +20,7 @@ var mymap = null;
 
 //map
 function moveIss() {
+
   if (mymap !== null) mymap.remove();
 
   var queryURL = "https://www.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=LDUFJ6-J5J7F4-DCMYRA-3WB7"
