@@ -147,8 +147,8 @@ $(".button").on("click", function (event) {
 
     var lat = results[0].locations[0].displayLatLng.lat;
     var lon = results[0].locations[0].displayLatLng.lng;
-    database.ref().push(lat);
-    database.ref().push(lon);
+    // database.ref().push(lat);
+    // database.ref().push(lon);
 
     var queryURL = "https://www.n2yo.com/rest/v1/satellite/visualpasses/25544/" + lat + "/" + lon + "/0/2/300/&apiKey=LDUFJ6-J5J7F4-DCMYRA-3WB7"
 
