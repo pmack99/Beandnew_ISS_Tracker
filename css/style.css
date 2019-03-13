@@ -4,9 +4,6 @@
 font-family: 'Nunito Sans', sans-serif; */
 
 
-
-
-
 body{
   background-color:#12131F;
   font-size: 100%;
@@ -146,9 +143,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242a37', end
 
 }
 
-
-/* OVERHEAD PASS */
-#pass{
+/* DARK CARD */
+#pass, #apod, #about{
   margin-top:50px;
   padding-top:25px;
   padding-bottom:30px;
@@ -159,6 +155,10 @@ background: -webkit-linear-gradient(top, #242a37 0%,#111423 100%); /* Chrome10-2
 background: linear-gradient(to bottom, #242a37 0%,#111423 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242a37', endColorstr='#111423',GradientType=0 ); /* IE6-9 */
 }
+
+
+/* OVERHEAD PASS */
+
 
 #passBox{
   margin-top: 30px;
@@ -202,91 +202,125 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242a37', end
   font-weight: 700;
 }
 
-/* accordion */
+/* card text */
+#noPasses {
+  color:#8FBDE0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 2px;
 
-
-.panel-default>.panel-heading {
-  color: #333;
-  background-color: #fff;
-  border-color: #e4e5e7;
-  padding: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  padding-right:2px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  /* margin-left:-15px; */
+  border-width: 0px;
+  
 }
 
-.panel-default>.panel-heading a {
-  display: block;
-  padding: 10px 15px;
+.overheadBox{
+  border-bottom-width: 0px;
+  border-top-width:2px;
+  border-right-width:1px;
+  border-left-width:1px;
+  border-style: solid;
+  border-color: #273540;
 }
 
-.panel-default>.panel-heading a:after {
-  content: "";
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  float: right;
-  transition: transform .25s linear;
-  -webkit-transition: -webkit-transform .25s linear;
+#CityStateTxt, #DateStringTxt, #DurationTxt, #WhereStartTxt, 
+#HowHighTxt, #MaxHeighTxt, #WhereEndTxt{
+  color:#8FBDE0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding-top:10px;
+  padding-bottom: 0px;
+  /* margin-left:-15px; */
 }
 
-.panel-default>.panel-heading a[aria-expanded="true"] {
-  background-color: #eee;
+#issCityState, #issDateString, #issDuration, #issWhereStart, 
+#issHowHigh, #issMaxHeigh, #issWhereEnd{
+  color:#F0F8FF;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding-top:10px;
+  padding-bottom: 10px;
 }
 
-.panel-default>.panel-heading a[aria-expanded="true"]:after {
-  content: "\2212";
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+/* Accordion */
+.accordionHeading{
+  color:#1D1E28;
+  text-align: left;
+  background-color:#F0F8FF;
+  border-radius: 0px;
 }
-
-.panel-default>.panel-heading a[aria-expanded="false"]:after {
-  content: "\002b";
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-.accordion-option {
-  width: 100%;
-  float: left;
-  clear: both;
-  margin: 15px 0;
-}
-
-.accordion-option .title {
-  font-size: 20px;
-  font-weight: bold;
-  float: left;
-  padding: 0;
-  margin: 0;
-}
-
-.accordion-option .toggle-accordion {
-  float: right;
-  font-size: 16px;
-  color: #6a6c6f;
-}
-
-.accordion-option .toggle-accordion:before {
-  content: "Expand All";
-}
-
-.accordion-option .toggle-accordion.active:before {
-  content: "Collapse All";
-}
-
 
 /* table */
 .table{
-  color:#F0F8FF;
+  color:#333333;
 }
+
+/* PHOTO GALLERY */
+
+/* #apod1 img{
+  max-width:1200;
+} */
+
+/* .imageSize{
+max-width:700px;
+min-width:300px;
+max-height:425px;
+min-height:220px; 
+} */
+
+.overlayImage{
+  background-color: rgba(0,0,0,0.7);
+  padding:10px;
+}
+
+
+
+#overflowCaption {
+
+  color:#F0F8FF;
+  padding: 15px;
+  width: 100%;
+  height: 150px;
+  overflow: scroll;
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: #1D1E28; 
+} */
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8FBDE0; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E9AE1A; 
+}
+
+.fixedHeight{
+  height:300px;
+
+}
+
+
+/* ABOUT */
+
 
 /* DEVICES QUEARIES */
 
@@ -309,49 +343,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242a37', end
 }
 
 button:focus {
-
   outline: .2px dashed #EAAC1B;
   outline: .2px auto -webkit-focusring-color;
-  
   }
-
-
 
 .navbar-dark .navbar-nav .nav-link {
   font-size: 1.1rem;
   color: rgba(143,189,224,1);
   text-align: center;
   border-top: .5px solid;
-  
   border-color: #273540;
   margin-left: -20px;
   margin-right: -20px;
 }
 
-
 .navbar-dark .navbar-nav .nav-link:hover {
-  
   color: rgba(234,172,27,1);
   background-color:rgba(18,19,31,1);
 }
 
 .navbar-dark .navbar-nav .nav-link:active {
-  
   color: rgba(234,172,27,1);
   background-color:rgba(18,19,31,1);
   border-top: 2px solid;
   border-top-color: rgba(234,172,27,1);
-
 }
 
 /* .navbar-collapse li a { background: green; } */
-
-
-
-
-
-
-
 
 }
 /* media query for mobile END */

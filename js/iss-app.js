@@ -60,12 +60,12 @@ function moveIss() {
 
       $("#latitudeTxt").text("Latitude: "),
         $("#latitudeN").text(latitude),
-        $("#longitudeTxt").text("Longitude: "),
+      $("#longitudeTxt").text("Longitude: "),
         $("#longitudeN").text(longitude),
-        $("#altitudeTxt").text("Satellite Right Angle:  "),
+      $("#altitudeTxt").text("Satellite Right Angle:  "),
         $("#altitude").text(ra),
-        $("#velocityTxt").text("Sattellite Declination:  ");
-      $("#velocity").text(dec);
+      $("#velocityTxt").text("Sattellite Declination:  ");
+        $("#velocity").text(dec);
 
       $("#timeStamp").text(timestamp);
       //   $("#solar_lonN").text("Solar Longitude: " + solar_lonN);
@@ -212,18 +212,26 @@ $(".button").on("click", function (event) {
             database.ref().push(newSearch);
 
             
-            var newRow = $("<tr>").append(
+            var newRow = $("card-body").append(
 
-              $("<td>").text(cityState),
-              $("<td>").text(dateString),
-              $("<td>").text(duration),
-              $("<td>").text(whereStart),
-              $("<td>").text(howHigh),
-              $("<td>").text(maxHigh),
-              $("<td>").text(whereEnd)
+              $("#CityStateTxt").text("City:"),
+                    $("#issCityState").text(cityState), //td
+                $("#DateStringTxt").text("ISS Pass:"),
+                    $("#issDateString").text(dateString),
+                $("#DurationTxt").text("Duration:"),
+                    $("#issDuration").text(duration),
+                $("#WhereStartTxt").text("Appears:"),
+                    $("#issWhereStart").text(whereStart),
+                $("#HowHighTxt").text("Start Elevation:"),
+                    $("#issHowHigh").text(howHigh),
+                $("#MaxHeighTxt").text("Max Elevation:"),
+                    $("#issMaxHeigh").text(maxHigh),
+                $("#WhereEndTxt").text("Departs:"),
+                    $("#issWhereEnd").text(whereEnd)
             );
+            
 
-            $("tbody").prepend(newRow);
+            $("card").prepend(newRow);
 
           }
         }
