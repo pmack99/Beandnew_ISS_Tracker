@@ -167,13 +167,17 @@ $(".button").on("click", function (event) {
         var passesCount = response.info.passescount;
         console.log(passesCount)
         if (passesCount == 0) {
+
           var newRow = $("card-body").append(
+
             $("#noPasses").text("There are no visible passes in the next 10 days"),
             database.ref().push("there are no visible passes in the next 10 days in " + cityState)
             
           );
           console.log("NO PASSES:", noPasses);
+
           $("card").append(newRow);
+
 
         } else {
           // Storing an array of results in the results variable
@@ -240,8 +244,6 @@ $(".button").on("click", function (event) {
   });
 });
 
-
-
 database.ref().on("child_added", function (childSnapshot) {
 
   var citySnap = childSnapshot.val().search
@@ -252,6 +254,7 @@ database.ref().on("child_added", function (childSnapshot) {
   var startEleSnap = childSnapshot.val().startingElevation
   var maxEleSnap = childSnapshot.val().maxElevation
   
+
   var issHistory = $("<tr>").append(
 
     $("<td>").text(citySnap),
@@ -264,3 +267,4 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log("testing child variables for xtine", citySnap, dateSnap);
   
 });
+
