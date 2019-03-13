@@ -167,13 +167,13 @@ $(".button").on("click", function (event) {
         var passesCount = response.info.passescount;
         console.log(passesCount)
         if (passesCount == 0) {
-          var newRow = $("<tr>").append(
-            $("<td>").text("There are no visible passes in the next 10 days"),
+          var newRow = $("#card-body").append(
+            $("#noPasses").text("There are no visible passes in the next 10 days"),
             database.ref().push("there are no visible passes in the next 10 days in " + cityState)
-
+            
           );
-
-          $("tbody").append(newRow);
+          console.log("NO PASSES:", noPasses);
+          $("#card").append(newRow);
 
         } else {
           // Storing an array of results in the results variable
@@ -230,7 +230,6 @@ $(".button").on("click", function (event) {
                     $("#issWhereEnd").text(whereEnd)
             );
             
-
             $("card").prepend(newRow);
 
           }
@@ -242,15 +241,14 @@ $(".button").on("click", function (event) {
 });
 
 database.ref().on("child_added", function (childSnapshot) {
-  console.log("this is the child snapshot", childSnapshot.val());
 
-var citySnap = childSnapshot.val().search
-var dateSnap = childSnapshot.val().date
-var startSnap = childSnapshot.val().start
-var endSnap = childSnapshot.val().end
-var lengthSnap = childSnapshot.val().lengthOfTime
-var startEleSnap = childSnapshot.val().startingElevation
-var maxEleSnap = childSnapshot.val().maxElevation
-
-
+  var citySnap = childSnapshot.val().search
+  var dateSnap = childSnapshot.val().date
+  var startSnap = childSnapshot.val().start
+  var endSnap = childSnapshot.val().end
+  var lengthSnap = childSnapshot.val().lengthOfTime
+  var startEleSnap = childSnapshot.val().startingElevation
+  var maxEleSnap = childSnapshot.val().maxElevation
+  
+  console.log("testing child variables for xtine", citySnap, dateSnap)
 })
