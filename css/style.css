@@ -38,7 +38,16 @@ h5, h6{
 
 p{
   font-family: 'Montserrat', sans-serif;
-}
+    color:#F0F8FF;
+    font-weight: 100;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: none;
+    text-align: justify;
+    /* margin-left:-15px; */
+    border-width: 0px;
+    
+  }
 
 .smallText{
   color:#F0F8FF;
