@@ -161,6 +161,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242a37', end
   margin-top:50px;
   padding-top:25px;
   padding-bottom:30px;
+  min-height: 500px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#242a37+0,111423+100 */
 background: #242a37; /* Old browsers */
 background: -moz-linear-gradient(top, #242a37 0%, #111423 100%); /* FF3.6-15 */
@@ -365,10 +366,10 @@ min-height:220px;
 
 /* DEVICES QUEARIES */
 
-
 /* MOBILE */
 
-@media (max-width: 991.98px) {
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
 /* navbar */
 .navbar-toggler {
   color:#EAAC1B;
@@ -412,7 +413,30 @@ button:focus {
 
 /* .navbar-collapse li a { background: green; } */
 
-}
-/* media query for mobile END */
+}/* media query for mobile END */
 
 
+
+/* TABLETS*/
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 991.98px) {
+
+  /* MAP */
+  #mapId{
+    height: 420px;
+  }
+
+
+
+}/* media query for tablets END */
+
+/* DESKTOP*/
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 991.98px) {
+
+  /* MAP */
+  #mapId{
+    height: 530px;
+  }
+
+}/* media query for desktop END */
